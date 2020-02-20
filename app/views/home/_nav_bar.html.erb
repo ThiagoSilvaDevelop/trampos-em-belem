@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to 'Home', root_path, class: "nav-link"%>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Lista de Vagas</a>
@@ -23,7 +23,10 @@
         </div>
       </li>
     </ul>
-    
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Anuncie um Trampo</button>
+    <% if !user_signed_in? %>
+      <%= link_to 'Anuncie um Trampo', new_job_path, class: "btn btn-outline-success my-2 my-sm-0" %>
+    <% else %>
+      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+    <% end %>
   </div>
 </nav>

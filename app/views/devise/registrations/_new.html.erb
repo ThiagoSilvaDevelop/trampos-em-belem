@@ -1,0 +1,24 @@
+<h3>Se ainda não é cadastrado em nossa plataforma, cadastre-se é gratuito!</h3>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Escreva seu Email *" %>
+  </div>
+
+  <div class="field">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, class: 'form-control', placeholder: "Escolha uma Senha *" %>
+  </div><br>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Repitra sua Senha *" %>
+  </div>
+<br>
+  <div class="actions">
+    <%= f.submit "Sign up", class: 'btnSubmit' %>
+  </div>
+<% end %>
