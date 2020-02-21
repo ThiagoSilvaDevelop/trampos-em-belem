@@ -5,6 +5,7 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
+      <%= image_tag("jobs.png", style: 'width: 50px;') %>
       <b><li class="nav-item active">
         <%= link_to 'Home', root_path, class: "nav-link"%>
       </li></b>
@@ -21,16 +22,14 @@
       </li>
     </ul>
     <% if !user_signed_in? %>
-      <b><%= link_to 'Anuncie um Trampo', new_job_path, class: "btn btn-outline-success my-2 my-sm-0" %></b>
+      <b><%= link_to 'Anuncie um Trampo', new_job_path, class: "btn btn-success" %></b>
     <% else %>
       <b><%= link_to "Sair", destroy_user_session_path, :method => :delete %></b>
     <% end %>
   </div>
 </nav>
 <style>
-.bg-dark {
-  background-color: #191970!important;
-}
+
 a{
   color: #fff;
 }
