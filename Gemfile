@@ -27,6 +27,9 @@ gem 'jbuilder', '~> 2.7'
 # Devise
 gem 'devise'
 
+# gem active_model_serializers
+gem 'active_model_serializers', '~> 0.10.10'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
