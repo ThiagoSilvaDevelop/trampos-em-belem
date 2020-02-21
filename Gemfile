@@ -25,6 +25,8 @@ gem 'dotenv-rails'
 
 gem 'pg'
 
+gem "font-awesome-rails"
+
 gem 'active_model_serializers', '~> 0.10.10'
 
 gem 'bootsnap', '>= 1.4.2', require: false

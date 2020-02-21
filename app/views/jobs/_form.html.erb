@@ -1,6 +1,7 @@
 <%= render 'home/nav_bar' %>
 <br>
   <%= form_with(model: job, local: true) do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <% if job.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>

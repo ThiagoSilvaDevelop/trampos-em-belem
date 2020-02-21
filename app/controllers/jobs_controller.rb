@@ -1,9 +1,9 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order(:created_at)
   end
 
   def show
@@ -17,11 +17,12 @@ class JobsController < ApplicationController
   end
 
   def create
+    binding.pry
     @job = Job.new(job_params)
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: "Informações salvas com sucesso." }
+        format.html { redirect_to jobs_path, notice: "Informações salvas com sucesso." }
         format.json { render :show, status: :created, location: @job }
       else
         format.html { render :new }
@@ -33,7 +34,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: "Informações atualizada com sucesso." }
+        format.html { redirect_to jobs_path, notice: "Informações atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -57,6 +58,7 @@ class JobsController < ApplicationController
     end
 
     def job_params
-      params.fetch(:job, {}).permit(:category, :amount, :description, :pre_requirements, :address, :more_details)
+      params.fetch(:job, {}).permit(:category, :amount, :description,
+        :pre_requirements, :address, :more_details, :user_id)
     end
 end

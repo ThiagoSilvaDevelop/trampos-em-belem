@@ -1,25 +1,58 @@
-<p id="notice"><%= notice %></p>
+<%= render 'home/nav_bar' %>
 
-<h1>Jobs</h1>
+<%= render 'home/header' %>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% if notice %>
+  <div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Warning!</h4>
+    <p class="mb-0"><%= notice %></a>.</p>
+  </div>
+<% end %>
 
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div class="container">
+    <div class="row">
+      <div class="col-9">
+        Se você estiver vendo as vagas é porque são recentes, então aproveite e veja quais os procedimentos a serem seguidos.<br><br><br><br>
+      </div>
+      <div class="col-4">
+        <div class="card border-success mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Temos muito mais para lhe oferecer</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Dicas, Palestras, Cursos...</h6>
+            <p class="card-text" style="text-align: justify;">Muitas empresas já perceberam a importância da capacitação profissional para aumentar a motivação das equipes.
+                                Os trabalhadores se sentem mais satisfeitos quando percebem que a organização valoriza o trabalho que realizam.</p>
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+          </div>
+        </div>
+      </div>
+    <div class="list-group col-8">
+      <% @jobs.each do |job| %>
+        <%= link_to job, class: "list-group-item list-group-item-action flex-column align-items-start active" do %>
+          <div class="d-flex">
+            <h5 class="mb-1"><%= job.category %></h5>
+          </div>
+          <small>
+          <p class="paragrafo"><%= job.description.html_safe %></p>
+            <% if jobs_address(job).blank? %>
+              <span class="badge badge-pill badge-success">
+                <%= job.address %>
+              </span>
+              
+            <% end %>
+          </small>
+        <% end %><br>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
 <br>
 
-<%= link_to 'New Job', new_job_path %>
+<style>
+  .paragrafo {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+</style>

@@ -1,4 +1,20 @@
-<p id="notice"><%= notice %></p>
+<%= render 'home/nav_bar' %>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+<%= render 'home/header' %>
+
+<% if notice %>
+  <div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Warning!</h4>
+    <p class="mb-0"><%= notice %></a>.</p>
+  </div>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+<center>
+  Estamos em manutenção, logo verá os detalhes da vaga! 
+  <%= link_to jobs_path, class: "btn btn-primary" do %>
+        <i class="fa fa-arrow-left"></i>
+        Voltar
+      <% end %>
+</center>
