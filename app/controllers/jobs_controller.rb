@@ -17,7 +17,6 @@ class JobsController < ApplicationController
   end
 
   def create
-    binding.pry
     @job = Job.new(job_params)
 
     respond_to do |format|

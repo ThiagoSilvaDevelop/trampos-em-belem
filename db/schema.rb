@@ -36,12 +36,9 @@ ActiveRecord::Schema.define(version: 2020_02_21_112332) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "job_id"
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["job_id"], name: "index_users_on_job_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "jobs", "users"
-  add_foreign_key "users", "jobs"
 end

@@ -14,5 +14,7 @@ test:
   <<: *default
   database: trampos_test
 
-production: 
+production:
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASS'] %>
   url: <%= ENV['DATABASE_URL'] %>
