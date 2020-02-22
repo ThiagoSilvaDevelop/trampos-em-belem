@@ -1,6 +1,17 @@
 <%= render 'home/nav_bar' %>
 
-<%= render 'home/header' %>
+<header class="bg-primary py-5 mb-5">
+  <div class="container h-100">
+    <div class="row h-50 align-items-center">
+      <div class="col-lg-12">
+        <h1 class="display-4 text-white mt-5 mb-2"><%= @job.category %></h1><br>
+        <span class="badge badge-success"><%= @job.city %></span>
+
+        <span class="badge badge-success date">Publicado dia: <%= @job.created_at.strftime("%d-%m-%y") %></span>
+      </div>
+    </div>
+  </div>
+</header>
 
 <% if notice %>
   <div class="alert alert-dismissible alert-warning">
@@ -10,11 +21,177 @@
   </div>
 <% end %>
 
-<p id="notice"><%= notice %></p>
-<center>
-  Estamos em manutenção, logo verá os detalhes da vaga! 
-  <%= link_to jobs_path, class: "btn btn-primary" do %>
-        <i class="fa fa-arrow-left"></i>
-        Voltar
-      <% end %>
-</center>
+<div class="container register">
+  <div class="row">
+    <div class="col-md-3 register-left">
+    
+      <%= image_tag("thismyjob.png", style: 'width: 200px;') %>
+      <h3>Atenção!</h3>
+      <p>Verifique as informações da vaga com cuidado, assim você irá garantir sua entrevista com sucesso.</p>
+    </div>
+      <div class="col-md-9 register-right">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <div class="row register-form">
+                <div class="container"><!--Caixa para mostrar o valor-->
+                  <div class="row">
+                    <div class="col-md-6 login-form-1">
+                      <b>Salário:</b> <%= salary_job %>
+                    </div>
+                  </div>
+                </div><br>
+
+                <div class="col-md-12">
+                  <h5>Descrição</h5>
+                  <hr>
+                  <%= @job.description.html_safe %>
+                </div>
+
+                <% unless @job.pre_requirements.blank? %>
+                  <div class="col-md-12">
+                    <h5>Pré Requisitos</h5>
+                    <hr>
+                    <%= @job.pre_requirements.html_safe %>
+                  </div>
+                <% end %>
+
+                <% unless @job.more_details.blank? %>
+                  <div class="col-md-12">
+                    <h5>Mais Detalhes</h5>
+                    <hr>
+                    <%= @job.more_details %>
+                  </div>
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<style>
+.mb-2{
+    margin: 36px 0 12px;
+    color: white;
+    font-size: 45px;
+    line-height: 46px;
+    word-break: break-word;
+    font-weight: 900;
+}
+.login-form-1{
+    padding: 5%;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    background: #fff;
+    margin-left: 50%;
+    margin-top: -13%;
+    border-radius: 5%;
+    font-size: 20px;
+    text-align: center;
+}
+  .badge-success{
+    width: 130px;
+    padding: 0.5%;
+  }
+  .date{
+    width: 170px;
+    padding: 0.5%;
+  }
+  .register{
+    background: -webkit-linear-gradient(left, #3233af, #343a40);
+    max-width: 100%;
+    margin-top: -5%;
+    
+  }
+  .register-left{
+    text-align: center;
+    color: #fff;
+    width: 30px;
+  }
+  .register-left input{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41;
+    margin-top: 30%;
+    margin-bottom: 3%;
+    cursor: pointer;
+  }
+  .register-right{
+    background: #f8f9fa;
+    border-top-left-radius: 10% 50%;
+    border-bottom-left-radius: 10% 50%;
+  }
+  .register-left img{
+    margin-top: 15%;
+    margin-bottom: 5%;
+    width: 25%;
+    -webkit-animation: mover 2s infinite  alternate;
+    animation: mover 1s infinite  alternate;
+  }
+  @-webkit-keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+  }
+  @keyframes mover {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+  }
+  .register-left p{
+    font-weight: lighter;
+    padding: 12%;
+    margin-top: -9%;
+  }
+  .register .register-form{
+    padding: 10%;
+    margin-top: -5%;
+  }
+  .btnRegister{
+    float: right;
+    margin-top: 10%;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #0062cc;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+  }
+  .register .nav-tabs{
+    margin-top: 3%;
+    border: none;
+    background: #0062cc;
+    border-radius: 1.5rem;
+    width: 28%;
+    float: right;
+  }
+  .register .nav-tabs .nav-link{
+    padding: 2%;
+    height: 34px;
+    font-weight: 600;
+    color: #fff;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+  }
+  .register .nav-tabs .nav-link:hover{
+    border: none;
+  }
+  .register .nav-tabs .nav-link.active{
+    width: 100px;
+    color: #0062cc;
+    border: 2px solid #0062cc;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+  }
+  .register-heading{
+    text-align: center;
+    margin-top: 8%;
+    margin-bottom: -15%;
+    color: #495057;
+  }
+</style>

@@ -17,7 +17,6 @@ class JobsController < ApplicationController
   end
 
   def create
-    binding.pry
     @job = Job.new(job_params)
 
     respond_to do |format|
@@ -59,6 +58,7 @@ class JobsController < ApplicationController
 
     def job_params
       params.fetch(:job, {}).permit(:category, :amount, :description,
-        :pre_requirements, :address, :more_details, :user_id)
+        :pre_requirements, :address, :more_details, :user_id,
+        :salary, :city)
     end
 end

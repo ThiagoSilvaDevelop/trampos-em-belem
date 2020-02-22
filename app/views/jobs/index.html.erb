@@ -29,19 +29,18 @@
       </div>
     <div class="list-group col-8">
       <% @jobs.each do |job| %>
-        <%= link_to job, class: "list-group-item list-group-item-action flex-column align-items-start active" do %>
-          <div class="d-flex">
-            <h5 class="mb-1"><%= job.category %></h5>
-          </div>
-          <small>
-          <p class="paragrafo"><%= job.description.html_safe %></p>
-            <% if jobs_address(job).blank? %>
-              <span class="badge badge-pill badge-success">
-                <%= job.address %>
-              </span>
+        <%= link_to job, class: 'noHover' do %>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between border-success">
+              <%= job.category %>
               
-            <% end %>
-          </small>
+              
+              <% if jobs_address(job).blank? %>
+                <span class="badge badge-pill text-white badge-info"><%="#{job.city}, " +" Publicado dia: "+ " #{job.created_at.strftime("%d-%m-%y")}" %></span> 
+              <% end %>
+            </li>
+          </ul>
+          
         <% end %><br>
       <% end %>
     </div>
@@ -51,6 +50,21 @@
 <br>
 
 <style>
+.noHover{
+  color: #000;
+}
+.noHover:hover{
+    color: #000;
+    text-decoration: none;
+}
+  .date{
+    width: 170px;
+    padding: 1%;
+  }
+  .badge-info{
+    width: 230px;
+    padding: 1%;
+  }
   .paragrafo {
     overflow: hidden;
     text-overflow: ellipsis;
