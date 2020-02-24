@@ -33,11 +33,7 @@
           <ul class="list-group mb-3">
             <li class="list-group-item d-flex justify-content-between border-success">
               <%= job.category %>
-              
-              
-              <% if jobs_address(job).blank? %>
                 <span class="badge badge-pill text-white badge-info"><%="#{job.city}, " +" Publicado dia: "+ " #{job.created_at.strftime("%d-%m-%y")}" %></span> 
-              <% end %>
             </li>
           </ul>
           
