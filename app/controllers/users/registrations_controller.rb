@@ -11,7 +11,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    binding.pry
     unless User.verify_email(params)
       notice = 'Erro ao cadastrar'
       return redirect_to user_session_path
