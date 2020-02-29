@@ -11,6 +11,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    binding.pry
+    unless User.verify_email(params)
+      notice = 'Erro ao cadastrar'
+      return redirect_to user_session_path
+    end
+
     super
   end
 
@@ -49,7 +55,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update) {
     |u| u.permit(:first_name, :last_name, :phone, :email, :mobile_number,
-      :address, :password, :password_confirmation, :current_password) }
+      :address, :avatar, :password, :password_confirmation, :current_password) }
   end
 
   # The path used after sign up.

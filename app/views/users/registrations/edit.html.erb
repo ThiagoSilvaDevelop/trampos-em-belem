@@ -1,5 +1,6 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: 'form') do |f| %>
 <%= render 'home/nav_bar' %><br><br><br><br>
-
+<%#= render 'shared/nav_bar_admin' %>
 <% if notice %>
   <div class="alert alert-dismissible alert-warning">
     <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -16,12 +17,16 @@
     <div class="row">
   		<div class="col-sm-2"><!--left col-->
               
-
       <div class="text-center">
-        <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
-        <h6>Adicione uma foto</h6>
-        
-        
+        <% if !current_user.avatar.blank? %>
+          <%= image_tag current_user.avatar, style: 'width: 170px;' %>
+          <%= f.file_field :avatar %>
+          <h6>Edite sua foto de perfil</h6>
+        <% else %>
+          <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+          <%= f.file_field :avatar %>
+          <h6>Adicione uma foto</h6>
+        <% end %>
       </div><br>  
           
       <ul class="list-group">
@@ -33,11 +38,8 @@
       </ul>      
     </div>
 
-              
   <div class="tab-content col-sm-10">
     <div class="tab-pane active" id="home">
-      
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: 'form') do |f| %>
       <div class="container bootstrap snippet">
         <div class="row"> 
           <div class="col-sm-6">
@@ -98,10 +100,7 @@
         <div class="form-group">
           <div class="col-xs-12">
             <br>
-            <%= f.submit "Atualizar", class: "btn btn-lg btn-success" %>
-            
-            
-                
+            <%= f.submit "Atualizar", class: "btn btn-lg btn-success" %> 
           </div>
         </div>
       <% end %>

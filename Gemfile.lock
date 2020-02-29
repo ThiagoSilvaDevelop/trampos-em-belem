@@ -140,6 +140,7 @@ GEM
     nokogiri (1.10.8-x86-mingw32)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    particles-js-rails (2.0.0)
     pg (1.2.2)
     pg (1.2.2-x64-mingw32)
     pg (1.2.2-x86-mingw32)
@@ -228,7 +229,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     thor (1.0.1)
     thread_safe (0.3.6)
     thread_safe (0.3.6-java)
@@ -283,6 +283,7 @@ DEPENDENCIES
   font-awesome-rails
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
+  particles-js-rails
   pg
   pry-rails
   puma (~> 4.1)
@@ -291,7 +292,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
   tinymce-rails
   turbolinks (~> 5)
   tzinfo-data
