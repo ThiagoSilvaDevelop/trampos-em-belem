@@ -1,0 +1,21 @@
+ruby_junior:
+  user_id: 1
+  category: Vaga para desenvolvedor ruby
+  amount: 3
+  description: Vaga necessecita de pessoas com experiencia de no mínimo 1 ano
+  pre_requirements: programar, ruby, rails, sinatra, testes com Rspec
+  address: residencial jamaica negra
+  more_details: perto do green top top
+  salary: 1,500,45
+  city: belém
+
+programador_java:
+  user_id: 2
+  category: Vaga para desenvolvedor java
+  amount: 3
+  description: Vaga para pessoas com experiencia de no mínimo 7 ano
+  pre_requirements: programar, java, muito java mesmo
+  address: ''
+  more_details: VR + RR + RV + TR
+  salary: 5,500,00
+  city: belém

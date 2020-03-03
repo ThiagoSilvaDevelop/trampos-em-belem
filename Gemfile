@@ -49,14 +49,14 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   
   gem 'pry-rails'
+
+  gem 'rspec-rails'
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
-  
-  gem 'selenium-webdriver'
+  gem 'rspec-rails'
 
-  gem 'webdrivers'
+  gem 'pig-ci-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
