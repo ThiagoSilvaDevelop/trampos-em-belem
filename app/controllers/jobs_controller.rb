@@ -24,7 +24,7 @@ class JobsController < ApplicationController
         format.html { redirect_to jobs_path, notice: "Informações salvas com sucesso." }
         format.json { render :show, status: :created, location: @job }
       else
-        format.html { render :new }
+        format.html { redirect_to jobs_path }
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end

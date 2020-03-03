@@ -29,14 +29,17 @@
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b><%= user_name_system %></b></a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
+            <i class="fa fa-user-circle"></i>
             <%= t('navbar_nav.profile') %>
           <% end %>
 
           <%= link_to new_job_path, class: "dropdown-item" do %>
+            <i class="fa fa-pencil"></i>
             <%= t('navbar_nav.post_vacancy') %>
           <% end %>
 
           <%= link_to destroy_user_session_path, :method => :delete, class: "dropdown-item" do %>
+            <i class="fa fa-sign-out"></i>
             <%= t('navbar_nav.logout') %>
           <% end %>
         </div>

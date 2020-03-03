@@ -1,0 +1,22 @@
+ <!-- Modal -->
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><%= image_tag 'happy.png', style: 'width: 80px;' %> Égua!!! Pensei que tu não ia voltar.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Veja nossas vagas. Não perca tempo não, estamos aqui para que possamos ajudar na sua carreira!
+        
+      </div>
+      <div class="modal-footer">
+        <%= link_to jobs_path, style: 'width: 200px;', type: 'button', class: "btn btn-primary" do %>
+          <b><%= t('jobs.vacancy') %></b>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  

@@ -9,6 +9,8 @@ gem 'puma', '~> 4.1'
 
 gem 'particles-js-rails'
 
+gem "font-awesome-rails"
+
 gem 'sass-rails', '>= 6'
 
 gem 'rails-i18n'
