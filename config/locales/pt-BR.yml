@@ -1,0 +1,11 @@
+'pt-BR':
+  jobs:
+    vacancy: 'Vagas'
+    vacancy_listing: 'Lista de Vagas'
+  menu:
+    advertise_a_job: 'Anuncie um Trampo'
+    home: 'Home'
+  navbar_nav:
+    profile: 'Perfil'
+    post_vacancy: 'Publicar Vaga'
+    logout: 'Sair'

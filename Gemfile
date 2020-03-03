@@ -11,6 +11,10 @@ gem 'particles-js-rails'
 
 gem 'sass-rails', '>= 6'
 
+gem 'rails-i18n'
+
+gem 'devise-i18n'
+
 gem 'webpacker', '~> 4.0'
 
 gem 'turbolinks', '~> 5'
