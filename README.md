@@ -1,24 +1,41 @@
-# README
+# Trampos de Belém
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Somos uma plataforma de publicação para vagas de emprego na cidade de belém do pará
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+Essas instruções fornecerão uma cópia do projeto em execução na sua máquina local para fins de desenvolvimento e teste. Consulte implantação para obter notas sobre como implantar o projeto em um sistema ativo.
 
-* System dependencies
+### Pré-requisitos
 
-* Configuration
+O que você precisa para instalar o software localmente
 
-* Database creation
+```
+ruby '2.6.5' ou superior
 
-* Database initialization
+banco Postgress
+```
 
-* How to run the test suite
+### Installing
 
-* Services (job queues, cache servers, search engines, etc.)
+Uma série de exemplos passo a passo que mostram como obter um ambiente de desenvolvimento em execução
 
-* Deployment instructions
+```
+cp .env.example .env
 
-* ...
+$ rails db:create db:migrate db:test:prepare
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Rode os testes
+
+```
+$ rails spec
+```
