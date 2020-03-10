@@ -10,7 +10,7 @@
 
         <span class="badge badge-success date">Publicado dia: <%= @job.created_at.strftime("%d-%m-%y") %></span>
 
-        <span class="badge badge-success date">Total de vagas: <%= !@job.amount.blank? ? @job.amount : 0 %></span>
+        <span class="badge badge-success date">Total de vagas: <%= !@job.amount.blank? ? @job.amount : 1 %></span>
       </div>
     </div>
   </div>
@@ -24,52 +24,46 @@
   </div>
 <% end %>
 
-<div class="container register">
+<div class="container">
   <div class="row">
-    <div class="col-md-3 register-left"><br><br>
-      <h3>Atenção!</h3>
-      <p>Verifique as informações da vaga com cuidado, assim você irá garantir sua entrevista com sucesso.</p>
-    </div>
-      <div class="col-md-9 register-right">
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-              <div class="row register-form">
-                <div class="container"><!--Caixa para mostrar o valor-->
-                  <div class="row">
-                    <div class="col-md-6 login-form-1">
-                      <b>Salário:</b> <%= salary_job %>
-                    </div>
-                  </div>
-                </div><br>
-
-                <div class="col-md-12">
-                  <h5>Descrição</h5>
-                  <hr>
-                  <%= @job.description.html_safe %>
-                </div>
-
-                <% unless @job.pre_requirements.blank? %>
-                  <div class="col-md-12">
-                    <h5>Pré Requisitos</h5>
-                    <hr>
-                    <%= @job.pre_requirements.html_safe %>
-                  </div>
-                <% end %>
-
-                <% unless @job.more_details.blank? %>
-                  <div class="col-md-12">
-                    <h5>Mais Detalhes</h5>
-                    <hr>
-                    <%= @job.more_details %>
-                  </div>
-                <% end %>
-
-              </div>
-            </div>
-          </div>
+    <div class="container"><!--Caixa para mostrar o valor-->
+      <div class="row">
+        <div class="col-md-4 login-form-1">
+          <b>Salário:</b> <%= salary_job %>
+        </div>
       </div>
-  </div>
-</div>
+    </div><br>
+    
+    <div class="col-md-12">
+        <h5>
+          Descrição
+          <% if user_belongs_to_job(@job) %>
+            <%= link_to edit_job_path(@job), type: "button", class: "btn btn-warning" do %>
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+              Editar
+            <% end %>
+          <% end %>
+        </h5>
+        <hr>
+        <%= @job.description.html_safe %>
+      </div>
+    </div>
+    <% unless @job.pre_requirements.blank? %>
+      <div class="col-md-12">
+        <h5>Pré Requisitos</h5>
+        <hr>
+        <%= @job.pre_requirements.html_safe %>
+      </div>
+    <% end %>
 
+    <% unless @job.more_details.blank? %>
+      <div class="col-md-12">
+        <h5>Mais Detalhes</h5>
+        <hr>
+        <%= @job.more_details %>
+      </div>
+    <% end %>
+  </div>
+</div><br><br>
 
 <%= render 'style_left_side_bar' %>

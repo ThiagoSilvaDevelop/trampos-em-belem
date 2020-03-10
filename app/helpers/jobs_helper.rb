@@ -14,4 +14,8 @@ module JobsHelper
   def user_name_system
     current_user.first_name.blank? ? current_user.email : current_user.first_name
   end
+
+  def user_belongs_to_job(job)
+    Job.find(job.id).user_id == current_user.id unless current_user.blank?
+  end
 end

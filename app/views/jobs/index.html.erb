@@ -15,27 +15,19 @@
       <div class="col-9">
         Se você estiver vendo as vagas é porque são recentes, então aproveite e veja quais os procedimentos a serem seguidos.<br><br><br><br>
       </div>
-      <div class="col-4">
-        <div class="card border-success mb-3" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">Temos muito mais para lhe oferecer</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Dicas, Palestras, Cursos...</h6>
-            <p class="card-text" style="text-align: justify;">Muitas empresas já perceberam a importância da capacitação profissional para aumentar a motivação das equipes.
-                                Os trabalhadores se sentem mais satisfeitos quando percebem que a organização valoriza o trabalho que realizam.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-          </div>
-        </div>
-      </div>
-    <div class="list-group col-8">
+    <div class="list-group col-12">
       <% @jobs.each do |job| %>
         <%= link_to job, class: 'noHover' do %>
-          <ul class="list-group mb-3">
-            <li class="list-group-item d-flex justify-content-between border-success">
-              <%= job.category %>
-                <span class="badge badge-pill text-white badge-info"><%="#{job.city}, " +" Publicado dia: "+ " #{job.created_at.strftime("%d-%m-%y")}" %></span> 
-            </li>
-          </ul>
+          <div class="card bg-light mb-3">
+            <div class="card-header">
+              <span class="badge badge-info pull-right"><%= job.city %></span>
+              
+              <span class="badge badge-info pull-right"><%= "Publicado dia: " + " #{job.created_at.strftime("%d-%m-%y")}" %></span> 
+            </div>
+            <div class="card-body">
+              <h4 class="card-title"><%= job.category %></h4>
+            </div>
+          </div>
         <% end %><br>
       <% end %>
     </div>
@@ -57,7 +49,7 @@
     padding: 1%;
   }
   .badge-info{
-    width: 230px;
+    width: 200px;
     padding: 1%;
   }
   .paragrafo {

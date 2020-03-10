@@ -25,38 +25,38 @@ require("channels")
 // });
 
 // Variaveis para guardar e verificar atividade no navegador
-var hidden = "hidden";
-var visibilityState = "visibilityState";
-var visibilityChange = "visibilitychange";
+// var hidden = "hidden";
+// var visibilityState = "visibilityState";
+// var visibilityChange = "visibilitychange";
 
-// verifica o navegador que esta sendo usando e adiciona o valor de acordo com o navegador
-for (var prefix in ["moz", "webkit", "ms"]) {
-    if (document[prefix + "Hidden"]) {
-        hidden = prefix + "Hidden";
-        visibilityState = prefix + "VisibilityState";
-        visibilityChange = prefix + "visibilitychange";
-    }
-}
+// // verifica o navegador que esta sendo usando e adiciona o valor de acordo com o navegador
+// for (var prefix in ["moz", "webkit", "ms"]) {
+//     if (document[prefix + "Hidden"]) {
+//         hidden = prefix + "Hidden";
+//         visibilityState = prefix + "VisibilityState";
+//         visibilityChange = prefix + "visibilitychange";
+//     }
+// }
 
-var wait; // guarda o ID gerado pelo funcção setInterval
-var second = 0;
+// var wait; // guarda o ID gerado pelo funcção setInterval
+// var second = 0;
  
-document.addEventListener(visibilityChange, function () {
-  if (wait) {
-    clearInterval(wait);
-    wait = undefined;
-    second = 0;
+// document.addEventListener(visibilityChange, function () {
+//   if (wait) {
+//     clearInterval(wait);
+//     wait = undefined;
+//     second = 0;
 
-    // alert('Voce ficou fora por ' + --second + ' segundos');// extra
-  } else {
-    wait = setInterval(function () {
-      document.title = "Estamos esperando você" ;
+//     // alert('Voce ficou fora por ' + --second + ' segundos');// extra
+//   } else {
+//     wait = setInterval(function () {
+//       document.title = "Estamos esperando você" ;
 
-      if (second > 10){
-        $('#modal').modal('show');
-      }
+//       if (second > 10){
+//         $('#modal').modal('show');
+//       }
 
-      second++;
-    }, 1000);
-  }
-});
+//       second++;
+//     }, 1000);
+//   }
+// });

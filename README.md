@@ -26,14 +26,6 @@ cp .env.example .env
 $ rails db:create db:migrate db:test:prepare
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
 ## Rode os testes
 
 ```
