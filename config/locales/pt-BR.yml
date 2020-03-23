@@ -1,10 +1,10 @@
 'pt-BR':
   jobs:
-    vacancy: 'Vagas'
+    vacancy: 'Vagas Publicadas'
     vacancy_listing: 'Lista de Vagas'
   menu:
     advertise_a_job: 'Anuncie um Trampo'
-    home: 'Home'
+    home: 'Página Inicial'
   navbar_nav:
     profile: 'Perfil'
     post_vacancy: 'Publicar Vaga'

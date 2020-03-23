@@ -20,12 +20,16 @@
         <%= link_to job, class: 'noHover' do %>
           <div class="card bg-light mb-3">
             <div class="card-header">
-              <span class="badge badge-info pull-right"><%= job.city %></span>
+              <h6 class="card-title">
+                <%= job.category %>
+                <span class="badge badge-info pull-right"><%= "Publicado dia: " + " #{job.created_at.strftime("%d-%m-%y")}" %></span> 
+              </h6>
               
-              <span class="badge badge-info pull-right"><%= "Publicado dia: " + " #{job.created_at.strftime("%d-%m-%y")}" %></span> 
             </div>
             <div class="card-body">
-              <h4 class="card-title"><%= job.category %></h4>
+              <p style='color: #666; font-size: 12px;'>
+                <%= Nokogiri::HTML(job.description.html_safe).text[0, 200] + '...' %>
+              </p>
             </div>
           </div>
         <% end %><br>
