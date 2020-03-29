@@ -37,12 +37,6 @@
     <div class="col-md-12">
         <h5>
           Descrição
-          <% if user_belongs_to_job(@job) %>
-            <%= link_to edit_job_path(@job), type: "button", class: "btn btn-warning" do %>
-              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-              Editar
-            <% end %>
-          <% end %>
         </h5>
         <hr>
         <%= @job.description.html_safe %>

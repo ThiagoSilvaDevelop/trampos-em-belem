@@ -9,6 +9,10 @@ class JobsController < ApplicationController
   def show
   end
 
+  def jobs_user_current
+    @jobs = Job.where(user_id: current_user.id )
+  end
+
   def new
     @job = Job.new
   end
@@ -45,7 +49,7 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     respond_to do |format|
-      format.html { redirect_to jobs_url, flash[:notice] = "Informações deletadas com sucesso." }
+      format.html { redirect_to jobs_user_current_path, notice: "Informações deletadas com sucesso." }
       format.json { head :no_content }
     end
   end
